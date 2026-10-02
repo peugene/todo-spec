@@ -1,0 +1,9 @@
+.delivery/run/
+.delivery/**/__pycache__/
+docs/stories/*/work/
+docs/campaigns/work/
+qualification/work/
+test-results/
+playwright-report/
+spec/acceptance/node_modules/
+docs/maybe/*.draft.md

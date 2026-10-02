@@ -1,0 +1,39 @@
+"""Where role sessions run. The engine reads story state from git and files only; a window
+merely shows sessions and starts them. Implementations: 'terminal' (plain processes),
+'herdr' (one workspace per story), 'cloud' (the story-implementer in a Claude Code cloud session,
+whatever the machine's window) and 'fake' (tests)."""
+
+from __future__ import annotations
+
+import os
+from pathlib import Path
+
+from .. import config
+from ..core import eprint, is_cloud
+from .base import Window
+
+
+def owner(root: Path, entry: dict) -> Window:
+    """The window that owns a registered session: the cloud one, else the machine's."""
+    if (entry or {}).get("window") == "cloud":
+        from .cloud import CloudWindow
+        return CloudWindow(root)
+    return get(root)
+
+
+def get(root: Path) -> Window:
+    choice = config.machine().get("window", "auto")
+    if os.environ.get("DELIVERY_FAKE_WINDOW"):
+        from .fake import FakeWindow
+        return FakeWindow(root)
+    if is_cloud():                  # no herdr in a cloud session: nothing to probe
+        choice = "terminal"
+    if choice in ("auto", "herdr"):
+        from .herdr import HerdrWindow
+        win = HerdrWindow(root)
+        if win.probe():
+            return win
+        if choice == "herdr":
+            eprint("window = herdr but herdr does not answer: falling back to 'terminal'")
+    from .terminal import TerminalWindow
+    return TerminalWindow(root)

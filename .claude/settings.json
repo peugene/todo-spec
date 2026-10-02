@@ -1,0 +1,104 @@
+{
+  "enabledPlugins": {
+    "delivery-method@delivery-method": false
+  },
+  "extraKnownMarketplaces": {
+    "delivery-method": {
+      "source": {
+        "source": "github",
+        "repo": "peugene/delivery-method",
+        "ref": "delivery-method--v0.3.0"
+      }
+    }
+  },
+  "permissions": {
+    "deny": [
+      "SendMessage"
+    ],
+    "ask": [
+      "Bash(deliveryctl init)",
+      "Bash(deliveryctl init *)",
+      "Bash(deliveryctl run)",
+      "Bash(deliveryctl run *)",
+      "Bash(deliveryctl merge)",
+      "Bash(deliveryctl merge *)",
+      "Bash(deliveryctl spec release)",
+      "Bash(deliveryctl spec release *)",
+      "Bash(deliveryctl spec sync)",
+      "Bash(deliveryctl spec sync *)",
+      "Bash(deliveryctl nightly)",
+      "Bash(deliveryctl nightly *)",
+      "Bash(deliveryctl note)",
+      "Bash(deliveryctl note *)",
+      "Bash(deliveryctl journal report)",
+      "Bash(deliveryctl journal report *)",
+      "Bash(deliveryctl qualify submit)",
+      "Bash(deliveryctl qualify submit *)",
+      "Bash(deliveryctl story next *--go*)",
+      "Bash(deliveryctl story next *--relaunch*)",
+      "Bash(.delivery/deliveryctl init)",
+      "Bash(.delivery/deliveryctl init *)",
+      "Bash(.delivery/deliveryctl run)",
+      "Bash(.delivery/deliveryctl run *)",
+      "Bash(.delivery/deliveryctl merge)",
+      "Bash(.delivery/deliveryctl merge *)",
+      "Bash(.delivery/deliveryctl spec release)",
+      "Bash(.delivery/deliveryctl spec release *)",
+      "Bash(.delivery/deliveryctl spec sync)",
+      "Bash(.delivery/deliveryctl spec sync *)",
+      "Bash(.delivery/deliveryctl nightly)",
+      "Bash(.delivery/deliveryctl nightly *)",
+      "Bash(.delivery/deliveryctl note)",
+      "Bash(.delivery/deliveryctl note *)",
+      "Bash(.delivery/deliveryctl journal report)",
+      "Bash(.delivery/deliveryctl journal report *)",
+      "Bash(.delivery/deliveryctl qualify submit)",
+      "Bash(.delivery/deliveryctl qualify submit *)",
+      "Bash(.delivery/deliveryctl story next *--go*)",
+      "Bash(.delivery/deliveryctl story next *--relaunch*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.delivery/deliveryctl hook stop",
+            "timeout": 40
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.delivery/deliveryctl hook session-start",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(deliveryctl *)",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.delivery/deliveryctl hook pre-tool",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "if": "Bash(.delivery/deliveryctl *)",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.delivery/deliveryctl hook pre-tool",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

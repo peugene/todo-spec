@@ -1,0 +1,29 @@
+{
+  "version": "0.3.0",
+  "files": {
+    ".claude/agents/product-analyst.md": "a401a7006c0b48ce5b4f9518e01d564978119824",
+    ".claude/agents/qualification-lead.md": "90f92b036ffc9d5f7ae98d5e8a0cfe8d3de41abf",
+    ".claude/agents/qualification-runner.md": "5ba8eb12700fa8933e6356a585d18eab55383886",
+    ".claude/agents/refuter.md": "3ce9d66a4a6cbc876c8297c0ee143e212806f649",
+    ".claude/agents/spec-reviewer.md": "39e038a7ce6002deb8bf34ed89c47f472117c865",
+    ".claude/agents/story-implementer.md": "66c01b20d54915524857f7146a210781d6090019",
+    ".claude/agents/story-reviewer.md": "aca98428c5ecb0a86c4554978f1a6490737e7706",
+    ".claude/agents/technical-lead.md": "ef9c9629fc399818a7808244eda2a0420c58da94",
+    ".claude/commands/handoff.md": "1b074e6a91f967ea47e04c918cb436545ad77d5b",
+    ".claude/commands/impl-frame.md": "af4b02392690c4f2a30577dc6c2176efeab96ed5",
+    ".claude/commands/qualify.md": "757c3f9a8ece423f1b59a5094e4a3492d4604eab",
+    ".claude/commands/run-campaign.md": "b9377635c89585b2a064b039f039dea2dfa3743a",
+    ".claude/commands/spec-frame.md": "6269ddc83c4f9c8e3011365fe5dab071b440c05a",
+    ".claude/commands/spec-review.md": "c95e3a39178b72a3517fe90ee140e7618cebc2b5",
+    ".claude/commands/spec-write.md": "ff88ab06ff3c92eb528c0bdd9b3655c28edb8df2",
+    ".claude/skills/acceptance-by-role/SKILL.md": "06194ea73fdc2005a16a9ef90ce2e8a4352300de",
+    ".claude/skills/adversarial-review/SKILL.md": "e1878668c1f0ac5b10d5e25a97f184c38d105fe5",
+    ".claude/skills/anchoring/SKILL.md": "a85daabcf5c800d9812e8149b90b37bae0c9dd29",
+    ".claude/skills/brainstorm/SKILL.md": "797aea4c296bc3f76bf6e161ab8c9835dc727778",
+    ".claude/skills/framing-discussion/SKILL.md": "a29b49a4fdc978a66b5973b8e0cada72e55980d9",
+    ".claude/skills/qualification-doctrine/SKILL.md": "4db035f53503068ac662ae37e53f9a0cfd1d82f9",
+    ".claude/skills/spec-writing/SKILL.md": "0039192c303a4cf0a43873ebcd8067ff11d03aaf",
+    ".claude/skills/testing-doctrine/SKILL.md": "cb6525e3f3e4bb7ff4b10766862677261bf662c5",
+    ".claude/skills/work-orders/SKILL.md": "31761b6deefaeae8dae691c596e63197d1474fe1"
+  }
+}
